@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Birthday Gift for Your Friend's Girlfriend</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #ffecd2, #fcb69f);
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #d63384;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .card {
+            width: 300px;
+            height: 400px;
+            margin: 20px auto;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .card.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .card-front {
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+        }
+        .card-back {
+            background: #fff;
+            transform: rotateY(180deg);
+            padding: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+        .teddy {
+            width: 150px;
+            height: 150px;
+            margin: 20px auto;
+            background: url('teddy.png') no-repeat center;
+            background-size: cover;
+            animation: play 2s infinite;
+        }
+        @keyframes play {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(5deg) scale(1.1); }
+            50% { transform: rotate(-5deg) scale(1.1); }
+            75% { transform: rotate(5deg) scale(1.1); }
+        }
+        .transition {
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .confetti {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="5" fill="%23ff6b6b"/><circle cx="20" cy="20" r="3" fill="%23feca57"/><circle cx="80" cy="80" r="4" fill="%234ecdc4"/></svg>') repeat;
+            animation: fall 5s linear infinite;
+        }
+        @keyframes fall {
+            from { transform: translateY(-100vh); }
+            to { transform: translateY(100vh); }
+        }
+        button {
+            background: #d63384;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #b0246a;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Birthday, [Her Name]! 🎉</h1>
+        <p>A special gift from [Your Friend's Name] to his amazing girlfriend. You're unique, loved, and full of joy!</p>
+        
+        <!-- Local Links Section -->
+        <h2>Quick Navigation</h2>
+        <p>Jump to sections directly:</p>
+        <a href="#birthday">View Birthday Card</a> | 
+        <a href="#newyear">New Year Wishes</a> | 
+        <a href="#teddy">Teddy Bear Fun</a> | 
+        <a href="file://./birthday_gift.html#custom">Customize Message</a> (Local File Link - Open in Browser)
+        
+        <!-- Birthday Card Section -->
+        <section id="birthday">
+            <h2>Select Your Card Theme (English Options)</h2>
+            <button onclick="changeTheme('romantic')">Romantic</button>
+            <button onclick="changeTheme('funny')">Funny</button>
+            <button onclick="changeTheme('sweet')">Sweet</button>
+            
+            <div class="card" onclick="flipCard()">
+                <div class="card-inner">
+                    <div class="card-front">Click to Open Your Birthday Card! 🎂</div>
+                    <div class="card-back">
+                        <p><strong>Hinglish Message:</strong></p>
+                        <p>Happy Birthday, yaar! Tum bahut special ho, jaise ek rare diamond. May your life ho full of love, laughter, aur endless happiness. Party karo, cake khao, aur yaad rakhna – you're the best! 😘</p>
+                        <p>From: [Your Friend's Name]</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- New Year Transition -->
+        <section id="newyear" class="transition">
+            <h2>New Year Wishes with a Magical Transition! ✨</h2>
+            <p>As we celebrate your birthday, let's transition into the New Year with hope and joy.</p>
+            <div class="confetti"></div>
+            <p><strong>English Wishes:</strong> May the New Year bring you new adventures, stronger bonds, and endless smiles. Cheers to a fresh start!</p>
+            <p><strong>Hinglish Twist:</strong> New Year mein, naya saal, nai umeeden! Tumhari life ho full of excitement aur success. Happy New Year, sweetheart! 🎆</p>
+        </section>
+        
+        <!-- Teddy Bear Section -->
+        <section id="teddy">
+            <h2>Teddy Bear Playing Just for You! 🧸</h2>
+            <div class="teddy"></div>
+            <p>This cute teddy is juggling hearts and dancing to celebrate you! (Animation loops for fun.)</p>
+        </section>
+        
+        <!-- Custom Message -->
+        <section id="custom">
+            <h2>Add Your Personal Touch</h2>
+            <p>Write a custom message in English or Hinglish:</p>
+            <textarea id="customMsg" rows="4" cols="50" placeholder="E.g., You're my everything, yaar!"></textarea><br>
+            <button onclick="alert('Message saved: ' + document.getElementById('customMsg').value)">Save Message</button>
+        </section>
+        
+        <p>Thank you for being you. This gift is made with love! 💖</p>
+    </div>
+
+    <script>
+        function flipCard() {
+            document.querySelector('.card').classList.toggle('flipped');
+        }
+        function changeTheme(theme) {
+            const front = document.querySelector('.card-front');
+            if (theme === 'romantic') front.style.background = 'linear-gradient(45deg, #ff6b6b, #feca57)';
+            else if (theme === 'funny') front.style.background = 'linear-gradient(45deg, #ffd93d, #ff6b6b)';
+            else if (theme === 'sweet') front.style.background = 'linear-gradient(45deg, #a8e6cf, #ffd3a5)';
+            alert('Theme changed to ' + theme + '!');
+        }
+    </script>
+</body>
+</html>
