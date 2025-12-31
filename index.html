@@ -3,88 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Special Birthday Gift for Your Friend's Girlfriend</title>
+    <title>Romantic Birthday Wishes for My Love</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(to bottom, #ffecd2, #fcb69f);
-            color: #333;
-            text-align: center;
+        /* Global Styles */
+        * {
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            box-sizing: border-box;
         }
-        h1, h2 {
-            color: #d63384;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .card {
-            width: 300px;
-            height: 400px;
-            margin: 20px auto;
-            perspective: 1000px;
-            cursor: pointer;
-        }
-        .card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            transition: transform 0.6s;
-            transform-style: preserve-3d;
-        }
-        .card.flipped .card-inner {
-            transform: rotateY(180deg);
-        }
-        .card-front, .card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        .card-front {
-            background: linear-gradient(45deg, #ff6b6b, #feca57);
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fce4ec, #f8bbd9, #e1bee7);
+            color: #4a148c;
+            overflow-x: hidden;
+            min-height: 100vh;
             display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .section {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
-            color: white;
-        }
-        .card-back {
-            background: #fff;
-            transform: rotateY(180deg);
             padding: 20px;
-            font-size: 18px;
-            color: #333;
+            position: relative;
+            overflow: hidden;
         }
         .teddy {
-            width: 150px;
-            height: 150px;
-            margin: 20px auto;
-            background: url('teddy.png') no-repeat center;
+            width: 200px;
+            height: 200px;
+            background: url('https://via.placeholder.com/200x200/ffb3ba/ffffff?text=Teddy') no-repeat center;
             background-size: cover;
-            animation: play 2s infinite;
+            border-radius: 50%;
+            position: relative;
+            animation: float 3s ease-in-out infinite;
         }
-        @keyframes play {
-            0%, 100% { transform: rotate(0deg) scale(1); }
-            25% { transform: rotate(5deg) scale(1.1); }
-            50% { transform: rotate(-5deg) scale(1.1); }
-            75% { transform: rotate(5deg) scale(1.1); }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
-        .transition {
-            animation: fadeIn 2s ease-in-out;
+        .hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .heart {
+            position: absolute;
+            font-size: 24px;
+            color: #e91e63;
+            animation: heartFloat 5s linear infinite;
+        }
+        @keyframes heartFloat {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+        .sparkle {
+            position: absolute;
+            font-size: 16px;
+            color: #ffd700;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 20px;
+            max-width: 300px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        .typewriter {
+            font-size: 18px;
+            line-height: 1.5;
+            white-space: pre-wrap;
+        }
+        .btn {
+            background: linear-gradient(45deg, #ff6b9d, #c44569);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+        .btn:hover { transform: scale(1.05); }
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+            height: 200px;
+            border-radius: 20px;
+            overflow: hidden;
         }
         .confetti {
             position: absolute;
@@ -93,104 +117,156 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="5" fill="%23ff6b6b"/><circle cx="20" cy="20" r="3" fill="%23feca57"/><circle cx="80" cy="80" r="4" fill="%234ecdc4"/></svg>') repeat;
-            animation: fall 5s linear infinite;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="40" y="40" width="20" height="20" fill="%23ff6b9d"/><circle cx="50" cy="50" r="10" fill="%23ffd700"/></svg>') repeat;
+            animation: confettiFall 5s linear infinite;
         }
-        @keyframes fall {
-            from { transform: translateY(-100vh); }
-            to { transform: translateY(100vh); }
+        @keyframes confettiFall {
+            0% { transform: translateY(-100vh); }
+            100% { transform: translateY(100vh); }
         }
-        button {
-            background: #d63384;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            margin: 10px;
-            border-radius: 5px;
-            cursor: pointer;
+        .fireworks {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 50px;
+            color: #ff5722;
+            animation: burst 1s ease-out infinite;
         }
-        button:hover {
-            background: #b0246a;
+        @keyframes burst {
+            0% { opacity: 1; transform: scale(0); }
+            50% { opacity: 0.8; transform: scale(1.5); }
+            100% { opacity: 0; transform: scale(2); }
         }
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
+        @media (max-width: 600px) {
+            .teddy { width: 150px; height: 150px; }
+            .glass-card { max-width: 280px; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Happy Birthday,! 🎉</h1>
-        <p>A special gift from Sameer to his amazing Wife. You're unique, loved, and full of joy!</p>
-        
-        <!-- Local Links Section -->
-        <h2>Quick Navigation</h2>
-        <p>Jump to sections directly:</p>
-        <a href="#birthday">View Birthday Card</a> | 
-        <a href="#newyear">New Year Wishes</a> | 
-        <a href="#teddy">Teddy Bear Fun</a> | 
-       
-        
-        <!-- Birthday Card Section -->
-        <section id="birthday">
-            <h2>Select Your Card Theme (English Options)</h2>
-            <button onclick="changeTheme('romantic')">Romantic</button>
-            <button onclick="changeTheme('funny')">Funny</button>
-            <button onclick="changeTheme('sweet')">Sweet</button>
-            
-            <div class="card" onclick="flipCard()">
-                <div class="card-inner">
-                    <div class="card-front">Click to Open Your Birthday Card! 🎂</div>
-                    <div class="card-back">
-                        <p><strong>Hinglish Message:</strong></p>
-                        <p>Happy Birthday, yaar! Tum bahut special ho, jaise ek rare diamond. May your life ho full of love, laughter, aur endless happiness. Meri zindagi ho tum,khush raho, aur yaad rakhna – you're the best! 😘</p>
-                        <p>From: [MOHAMMAD SAMEER]</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- New Year Transition -->
-        <section id="newyear" class="transition">
-            <h2>New Year Wishes with a Magical Transition! ✨</h2>
-            <p>As we celebrate your birthday, let's transition into the New Year with hope and joy.</p>
-            <div class="confetti"></div>
-            <p><strong> Wishes:</strong> May the New Year bring you new adventures, stronger bonds, and endless smiles. Cheers to a fresh start!</p>
-            <p><strong> Twist:</strong> New Year mein, naya saal, nai umeeden! Tumhari life ho full of excitement aur success. Happy New Year, sweetheart! 🎆</p>
-        </section>
-        
-        <!-- Teddy Bear Section -->
-        <section id="teddy">
-            <h2>its Just for You! 🧸</h2>
-            <div class="teddy"></div>
-            <p>This cute teddy is juggling hearts and dancing to celebrate your Birthday! (Animation loops for fun.)</p>
-        </section>
-        
-        <!-- Custom Message -->
-        <section id="custom">
-            <h2>Add Your Personal Touch</h2>
-            <p>Write a custom message in English or Hinglish:</p>
-            <textarea id="customMsg" rows="4" cols="50" placeholder="E.g., You're my everything, yaar!"></textarea><br>
-            <button onclick="alert('Message saved: ' + document.getElementById('customMsg').value)">Save Message</button>
-        </section>
-        
-        <p>Thank you for being you. This gift is made with love! 💖</p>
+    <!-- Landing Section -->
+    <div id="landing" class="section">
+        <div class="teddy"></div>
+        <h1>Hey Love ❤️</h1>
+        <p>I made something special… just for you</p>
+        <button class="btn" onclick="nextSection('birthday')">Tap to feel the magic ✨</button>
+        <div class="hearts" id="hearts"></div>
     </div>
 
+    <!-- Birthday Wish Section -->
+    <div id="birthday" class="section" style="display: none;">
+        <div class="teddy"></div>
+        <div class="glass-card">
+            <div class="typewriter" id="typewriter-birthday"></div>
+        </div>
+        <button class="btn" onclick="nextSection('love')">Next</button>
+    </div>
+
+    <!-- Love Message Card Section -->
+    <div id="love" class="section" style="display: none;">
+        <div class="glass-card">
+            <p>Main perfect nahi hoon,<br>par tumse pyaar pure dil se karta hoon.<br>Har moment, har dream,<br>main tumhare saath jeena chahta hoon.</p>
+        </div>
+        <button class="btn" onclick="nextSection('video')">Next</button>
+    </div>
+
+    <!-- Video Section -->
+    <div id="video" class="section" style="display: none;">
+        <div class="video-container">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe> <!-- Replace with your personal video URL -->
+        </div>
+        <div class="teddy" style="margin-top: 20px;"></div>
+        <button class="btn" onclick="nextSection('newyear')">Next</button>
+    </div>
+
+    <!-- New Year Wishes Section -->
+    <div id="newyear" class="section" style="display: none;">
+        <div class="glass-card">
+            <p>Happy New Year My Love ✨<br>Is saal bhi aur har saal,<br>main tumhara haath pakad ke chalna chahta hoon.<br>Tum ho toh sab kuch complete hai.</p>
+        </div>
+        <div class="fireworks">🎆</div>
+        <button class="btn" onclick="nextSection('ending')">Next</button>
+    </div>
+
+    <!-- Final Ending Section -->
+    <div id="ending" class="section" style="display: none;">
+        <div class="teddy"></div>
+        <h2>Forever Yours ❤️</h2>
+        <p>With all my love</p>
+        <div class="confetti"></div>
+    </div>
+
+    <!-- Audio for Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav"> <!-- Replace with a romantic music URL -->
+    </audio>
+    <button class="btn" style="position: fixed; bottom: 20px; right: 20px;" onclick="playMusic()">Play Music 🎵</button>
+
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script>
-        function flipCard() {
-            document.querySelector('.card').classList.toggle('flipped');
+        // GSAP Animations and Interactions
+        let currentSection = 'landing';
+
+        function nextSection(nextId) {
+            gsap.to(`#${currentSection}`, { opacity: 0, y: -50, duration: 1, onComplete: () => {
+                document.getElementById(currentSection).style.display = 'none';
+                document.getElementById(nextId).style.display = 'flex';
+                gsap.from(`#${nextId}`, { opacity: 0, y: 50, duration: 1 });
+                currentSection = nextId;
+                if (nextId === 'birthday') startTypewriter();
+            }});
         }
-        function changeTheme(theme) {
-            const front = document.querySelector('.card-front');
-            if (theme === 'romantic') front.style.background = 'linear-gradient(45deg, #ff6b6b, #feca57)';
-            else if (theme === 'funny') front.style.background = 'linear-gradient(45deg, #ffd93d, #ff6b6b)';
-            else if (theme === 'sweet') front.style.background = 'linear-gradient(45deg, #a8e6cf, #ffd3a5)';
-            alert('Theme changed to ' + theme + '!');
+
+        // Typewriter Effect for Birthday Wish
+        function startTypewriter() {
+            const text = "Happy Birthday meri jaan 🎂❤️\nTum meri life ka sabse beautiful surprise ho.\nTumhari smile meri duniya roshan kar deti hai.\nAaj ka din sirf tumhara hai… aur hamesha tumhara rahega.";
+            const element = document.getElementById('typewriter-birthday');
+            let i = 0;
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, 100);
+                }
+            }
+            type();
         }
+
+        // Floating Hearts
+        function createHearts() {
+            const heartsContainer = document.getElementById('hearts');
+            for (let i = 0; i < 10; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                heartsContainer.appendChild(heart);
+            }
+        }
+        createHearts();
+
+        // Parallax Teddy Movement (on scroll)
+        gsap.to('.teddy', {
+            y: -100,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '.section',
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true
+            }
+        });
+
+        // Play Music
+        function playMusic() {
+            document.getElementById('bgMusic').play();
+        }
+
+        // Initial Setup
+        gsap.from('#landing', { opacity: 0, duration: 2 });
     </script>
 </body>
 </html>
