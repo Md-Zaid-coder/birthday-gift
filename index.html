@@ -138,6 +138,32 @@
             50% { opacity: 0.8; transform: scale(1.5); }
             100% { opacity: 0; transform: scale(2); }
         }
+        .heart-transition {
+            position: absolute;
+            font-size: 40px;
+            color: #e91e63;
+            animation: heartBurst 2s ease-out forwards;
+        }
+        @keyframes heartBurst {
+            0% { transform: scale(0) rotate(0deg); opacity: 1; }
+            50% { transform: scale(1.5) rotate(180deg); opacity: 0.8; }
+            100% { transform: scale(2) rotate(360deg); opacity: 0; }
+        }
+        .glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255, 107, 157, 0.5), transparent);
+            border-radius: 50%;
+            animation: glowPulse 3s ease-in-out infinite;
+        }
+        @keyframes glowPulse {
+            0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+        }
         @media (max-width: 600px) {
             .teddy { width: 150px; height: 150px; }
             .glass-card { max-width: 280px; }
@@ -174,7 +200,7 @@
     <!-- Video Section -->
     <div id="video" class="section" style="display: none;">
         <div class="video-container">
-            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe> <!-- Replace with your personal video URL -->
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/4fWHzWoOjzQ" frameborder="0" allowfullscreen></iframe> <!-- Islamic Nasheed: "Hasbi Rabbi" by Sami Yusuf - A beautiful, uplifting nasheed that celebrates faith, love, and making one feel special in an Islamic context -->
         </div>
         <div class="teddy" style="margin-top: 20px;"></div>
         <button class="btn" onclick="nextSection('newyear')">Next</button>
@@ -191,10 +217,13 @@
 
     <!-- Final Ending Section -->
     <div id="ending" class="section" style="display: none;">
+        <div class="glow"></div>
         <div class="teddy"></div>
-        <h2>Forever Yours ❤️</h2>
-        <p>With all my love</p>
+        <div class="glass-card">
+            <div class="typewriter" id="typewriter-ending"></div>
+        </div>
         <div class="confetti"></div>
+        <div class="hearts" id="ending-hearts"></div>
     </div>
 
     <!-- Audio for Background Music -->
@@ -215,14 +244,22 @@
                 document.getElementById(nextId).style.display = 'flex';
                 gsap.from(`#${nextId}`, { opacity: 0, y: 50, duration: 1 });
                 currentSection = nextId;
-                if (nextId === 'birthday') startTypewriter();
+                if (nextId === 'birthday') startTypewriter('birthday');
+                if (nextId === 'ending') {
+                    startTypewriter('ending');
+                    triggerHeartTransition();
+                }
             }});
         }
 
-        // Typewriter Effect for Birthday Wish
-        function startTypewriter() {
-            const text = "Happy Birthday meri jaan 🎂❤️\nTum meri life ka sabse beautiful surprise ho.\nTumhari smile meri duniya roshan kar deti hai.\nAaj ka din sirf tumhara hai… aur hamesha tumhara rahega.";
-            const element = document.getElementById('typewriter-birthday');
+        // Typewriter Effect for Sections
+        function startTypewriter(section) {
+            const texts = {
+                birthday: "Happy Birthday meri jaan 🎂❤️\nTum meri life ka sabse beautiful surprise ho.\nTumhari smile meri duniya roshan kar deti hai.\nAaj ka din sirf tumhara hai… aur hamesha tumhara rahega.",
+                ending: "Forever for you, my jaan ❤️\nTum mere sab kuch ho 💖\n\nTum mere dil ki raani ho, jaaneman.\nHar pal mein tumhari yaad aati hai.\nTumse pyaar karna mera sabse bada saukh hai.\nTum ho toh zindagi ek khoobsurat sapna lagti hai.\nMain tumhara hoon, aur hamesha rahunga.\nTumhari mohabbat ne mujhe pura bana diya hai.\nHappy Birthday aur Happy New Year, my everything! 💖"
+            };
+            const element = document.getElementById(`typewriter-${section}`);
+            const text = texts[section];
             let i = 0;
             function type() {
                 if (i < text.length) {
@@ -232,6 +269,22 @@
                 }
             }
             type();
+        }
+
+        // Heart Emoji Transition for Ending
+        function triggerHeartTransition() {
+            const container = document.getElementById('ending-hearts');
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'heart-transition';
+                    heart.innerHTML = '❤️';
+                    heart.style.left = Math.random() * 100 + '%';
+                    heart.style.top = Math.random() * 100 + '%';
+                    container.appendChild(heart);
+                    setTimeout(() => heart.remove(), 2000);
+                }, i * 100);
+            }
         }
 
         // Floating Hearts
